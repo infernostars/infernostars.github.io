@@ -13,13 +13,13 @@ html, input {
   }
 
   .success {
-    border-color: #18f018;
-    color: #18f018;
+    border-color: #28d028;
+    color: #28d028;
   }
 
   .fail {
-    border-color: #f01818;
-    color: #f01818;
+    border-color: #d02828;
+    color: #d02828;
   }
 
   button {
