@@ -11,28 +11,27 @@ html, input {
   .markdown-body code {
     padding: 0px 0.2em;
   }
-  
+
+  .success {
+    border-color: #18f018;
+    color: #18f018;
+  }
+
+  .fail {
+    border-color: #f01818;
+    color: #f01818;
+  }
+
   button {
     background-color: #181818;
     color: #f0f0f0;
     padding: 5px 10px;
-    border: 3px solid white;
+    border: 3px solid #d0d0d0;
     border-radius: 7px 21px
-  }
-
-  .success {
-    border-color: #44dd44;
-    color: #44dd44;
-  }
-
-  .fail {
-    border-color: #dd4444;
-    color: #dd4444;
   }
 
   .markdown-body {
     color: #f0f0f0;
-    line-height: 1.75
   }
   
   .markdown-body h1 {
