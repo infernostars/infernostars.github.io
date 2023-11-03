@@ -1,0 +1,39 @@
+html, input {
+    background-color: #181818;
+    color: #f0f0f0;
+  }
+  #canvas-holder {
+    margin: 10px auto;
+    border: 1px solid;
+    margin: 0px 0px;
+  }
+  
+  .markdown-body code {
+    padding: 0px 0.2em;
+  }
+  
+  button {
+    background-color: #181818;
+    color: #f0f0f0;
+    padding: 5px 10px;
+    border: 3px solid white;
+    border-radius: 7px 21px
+    
+  }
+
+  .markdown-body {
+    color: #f0f0f0;
+    line-height: 1.75
+  }
+  
+  .markdown-body h1 {
+    border-bottom-color: #a0a0a0;
+  }  
+  
+  .markdown-body h2 {
+    border-bottom-color: #707070;
+  }
+  
+  li {
+    margin-left: -15px;
+  }
