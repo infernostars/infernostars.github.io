@@ -21,8 +21,15 @@ html, input {
   }
 
   .success {
-    border: 3px solid #44dd44;
+    border-color: #44dd44;
+    color: #44dd44;
   }
+
+  .fail {
+    border-color: #dd4444;
+    color: #dd4444;
+  }
+
   .markdown-body {
     color: #f0f0f0;
     line-height: 1.75
