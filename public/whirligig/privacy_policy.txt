@@ -1,0 +1,5 @@
+Whirligig does not store any personal information - however, it can store options & preferences as defined by you.
+This data is not deleted automatically, since it's not personal information (and, you probably want to keep your preferences anyway)
+This data is stored in the United States.
+
+If you want your information deleted, contact @whirlingstars on Discord.
