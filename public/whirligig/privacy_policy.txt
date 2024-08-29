@@ -1,4 +1,5 @@
-Whirligig does not store any personal information - however, it can store options & preferences as defined by you.
+Whirligig does not store any personal information - however, it can store options & preferences as defined by you, as well as user generated content.
+Some of this is automatically anonymized by its purpose - random text strings, for example. However, stuff like tags stored and accessed with the /tag command is not anonymized.
 This data is not deleted automatically, since it's not personal information (and, you probably want to keep your preferences anyway)
 This data is stored in the United States.
 
