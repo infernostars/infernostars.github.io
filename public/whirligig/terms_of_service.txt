@@ -1,0 +1,68 @@
+These terms have last been updated on 08/28/24.
+
+For a quick, non-legal overview:
+These terms can change whenever, but you will be informed when.
+Whatever you put into the bot should be non-objectionable.
+For any sort of questions, DM @whirlingstars on Discord.
+
+With that out of the way, the more formal definition is below.
+
+For the purposes of shorthanding, here are some definitions:
+"Whirligig", the "Service", or the "Bot" refers to the Whirligig discord bot.
+"I" or "My" refers to myself, whirlingstars.
+"Data", "Content", or "Settings" refers to anything Whirligig stores on my servers - tags, random texts, information like that.
+"You", "Your", or any other nouns with the same meaning refers to you, the individual using Whirligig.
+"These terms" or just "terms" refers to this document.
+"Privacy policy" refers to our privacy policy, accessed here: https://whirling.infernity.dev/whirligig/privacy_policy.txt
+These may all be used in the lowercase form, as well.
+
+You agree that you have read these terms before using Whirligig. If you break these terms, your permission to use Whirligig may be restricted or removed.
+These terms may change at any time, however you are entitled to be informed through the "Whirligig Central" discord server, in the "bot-announcements" channel.
+The privacy policy may also change at any time, however you are entitled to be informed through the same channels.
+
+Whirligig stores data about you and miscellaneous content. How it is used is in the privacy policy, and you agree to it by using the bot.
+
+I am not responsible for content you or other users put into Whirligig! You grant myself the right and license to use, modify, publicly perform,
+publicly display, reproduce, and distribute your content, but you retain all of your rights to the content you submit to Whirligig.
+You are also responsible for protecting these rights. Other users may use your content subject to these terms.
+
+The burden is on you to make sure that you own the content or can otherwise use it and give us the same rights to your content as described above.
+The burden is also on you to make sure that your content does not violate privacy rights, publicity rights, copyrights, contract rights or any
+other rights of any person.
+
+You may not submit any content that is unlawful, offensive, upsetting, intended to disgust, threatening, libelous, defamatory, obscene or otherwise objectionable. 
+Examples of such objectionable content include, but are not limited to, the following:
+● Unlawful or promoting unlawful activity.
+● Defamatory, discriminatory, or mean-spirited content, including references or commentary about
+religion, race, sexual orientation, gender, national/ethnic origin, or other targeted groups.
+● Any form of advertising without our approval.
+● Using Whirligig to spam in any channel or DM without permission from others.
+● Containing or installing any viruses, worms, malware, trojan horses, or other content that is
+designed or intended to disrupt, damage, or limit the functioning of any software, hardware or
+telecommunications equipment or to damage or obtain unauthorized access to any data or other
+information of a third person.
+● Infringing on any proprietary rights of any party, including patent, trademark, trade secret, copyright, right of publicity or other rights.
+● Impersonating any person or entity including myself.
+● Violating the privacy of any third person.
+● False information and features.
+
+If you are a copyright owner [or authorized on behalf of one], and you believe that copyrighted work has been copied in sunch a way that consitutes copyright infringement through Whirligig,
+you must submit your notice in writing to the attention of myself through Discord at @whirlingstars.
+
+If you want to submit a DMCA copyright takedown notice, send @whirlingstars the following information (see 17 U.S.C 512(c)(3) for further detail):
+● An electronic or physical signature of the person authorized to act on behalf of the owner of the
+copyright's interest.
+● A description of the copyrighted work that You claim has been infringed, including the URL (i.e., web
+page address) of the location where the copyrighted work exists or a copy of the copyrighted work.
+● Identification of the URL or other specific location on the Service where the material that You claim
+is infringing is located.
+● Your address, telephone number, and email address.
+● A statement by You that You have a good faith belief that the disputed use is not authorized by the
+copyright owner, its agent, or the law.
+● A statement by You, made under penalty of perjury, that the above information in Your notice is
+accurate and that You are the copyright owner or authorized to act on the copyright owner's behalf.
+
+Whirligig may link to websites which are not controlled by us. We do not assume any form of responsibility for these sites. I am not responsible or liable for anything that happens outside of Whirligig.
+You may lose permission to use Whirligig at any time, for any reason, without limitation.
+
+Whirligig comes as is, without warranty of any kind.
