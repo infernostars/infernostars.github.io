@@ -1,8 +1,8 @@
-Whirligig does not store any personal information - however, it can store options & preferences as defined by you, as well as user generated content.
+Perihelion does not store any personal information - however, it can store options & preferences as defined by you, as well as user generated content.
 Some of this is automatically anonymized by its purpose - random text strings, for example. However, stuff like tags stored and accessed with the /tag command is not fully anonymized.
 This data is not deleted automatically, since it's not personal information (and, you probably want to keep your preferences anyway)
 This data is stored in the United States.
 
-This policy page may be changed at any time, however you are entitled to be informed through the "Whirligig Central" discord server, in the "bot-announcements" channel.
+This policy page may be changed at any time, however you are entitled to be informed through the "Perihelion Central" discord server, in the "bot-announcements" channel.
 
 If you want your information deleted, contact @whirlingstars on Discord.
