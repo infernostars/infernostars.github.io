@@ -9,11 +9,11 @@ With that out of the way, the more formal definition is below.
 
 For the purposes of shorthanding, here are some definitions:
 "Perihelion", the "Service", or the "Bot" refers to the Perihelion discord bot.
-"I" or "My" refers to myself, whirlingstars.
-"Data", "Content", or "Settings" refers to anything Perihelion stores on my servers - tags, random texts, information like that.
+"We" or "Our" refers to the three Perihelion maintainers, @legitsi, @diginist, and @whirlingstars.
+"Data", "Content", or "Settings" refers to anything Perihelion stores on our servers - tags, random texts, information like that.
 "You", "Your", or any other nouns with the same meaning refers to you, the individual using Perihelion.
 "These terms" or just "terms" refers to this document.
-"Privacy policy" refers to our privacy policy, accessed here: https://whirling.infernity.dev/Perihelion/privacy_policy.txt
+"Privacy policy" refers to our privacy policy, accessed here: https://whirling.infernity.dev/perihelion/privacy_policy.txt
 These may all be used in the lowercase form, as well.
 
 You agree that you have read these terms before using Perihelion. If you break these terms, your permission to use Perihelion may be restricted or removed.
@@ -22,7 +22,7 @@ The privacy policy may also change at any time, however you are entitled to be i
 
 Perihelion stores data about you and miscellaneous content. How it is used is in the privacy policy, and you agree to it by using the bot.
 
-I am not responsible for content you or other users put into Perihelion! You grant myself the right and license to use, modify, publicly perform,
+We am not responsible for content you or other users put into Perihelion! You grant myself the right and license to use, modify, publicly perform,
 publicly display, reproduce, and distribute your content, but you retain all of your rights to the content you submit to Perihelion.
 You are also responsible for protecting these rights. Other users may use your content subject to these terms.
 
@@ -62,7 +62,7 @@ copyright owner, its agent, or the law.
 ● A statement by You, made under penalty of perjury, that the above information in Your notice is
 accurate and that You are the copyright owner or authorized to act on the copyright owner's behalf.
 
-Perihelion may link to websites which are not controlled by us. We do not assume any form of responsibility for these sites. I am not responsible or liable for anything that happens outside of Perihelion.
+Perihelion may link to websites which are not controlled by us. We do not assume any form of responsibility for these sites. We are not responsible or liable for anything that happens outside of Perihelion.
 You may lose permission to use Perihelion at any time, for any reason, without limitation.
 
 Perihelion comes as is, without warranty of any kind.
