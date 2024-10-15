@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('/header-style.css');
+
+body {
+    font-family: "Source Sans 3", sans-serif;
+    color:hsl(178.97, 65%, 88.94%);
+    background-color: rgb(0, 22, 21);
+}
+
+p {
+    filter: drop-shadow(-2px 3px 4px hsl(171.72, 100%, 11.68%));
+}
+
+a {
+    color:hsl(178.97, 100%, 78.94%);
+}
+
+h1 {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 650;
+    color: hsl(178.97, 100%, 43.94%);
+    filter: drop-shadow(-6px 9px 10px hsl(171.72, 100%, 11.68%));
+}
+
+h2 {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    color: hsl(178.97, 90%, 53.94%);
+    filter: drop-shadow(-4px 6px 7px hsl(171.72, 100%, 11.68%));
+}
+
+h3 {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 550;
+    color: hsl(178.97, 80%, 63.94%);
+    filter: drop-shadow(-3px 4px 5px hsl(171.72, 100%, 11.68%));
+}
+
+.buffer {
+    padding: 15px;
+}
+
+/* from R74n */
+.homediv {
+    display: inline-block;
+    vertical-align: top;
+}
+
+dd {
+    margin-inline-start: 20px;
+}
+
+dl {
+    list-style: none;
+}
+
+dl a {
+    font-size: large;
+    font-weight: 600;
+}
+
+dl dt::before {
+    content: "⥏";
+    font-weight: 800;
+    color: hsl(178.97, 65%, 48.94%);
+    filter: drop-shadow(0px 0px 7px hsl(171.72, 100%, 41.68%));
+}
+
+dd::before {
+    content: "╙ "
+}
