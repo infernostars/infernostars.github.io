@@ -40,6 +40,9 @@ h3 {
     padding: 15px;
 }
 
+h3 small {
+    font-style: italic;
+}
 /* from R74n */
 .homediv {
     display: inline-block;
