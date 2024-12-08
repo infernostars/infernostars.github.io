@@ -50,11 +50,12 @@ code {
 img:not(.oversize) {
     max-width: min(75%, 1000px);
 }
-//
 
 /* from R74n */
+
 .homediv {
     display: inline-block;
+    max-width: fit-content;
     vertical-align: top;
 }
 
