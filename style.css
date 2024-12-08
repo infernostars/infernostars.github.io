@@ -47,6 +47,9 @@ code {
     border-radius: 11px 4px 11px 4px;
 }
 
+img:not(.oversize) {
+    max-width: min(75%, 1000px);
+}
 
 
 /* from R74n */
