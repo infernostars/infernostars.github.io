@@ -1,0 +1,34 @@
+---
+import logo from "../assets/icon.png"
+---
+
+<div id="container">
+	<intro>
+		<img src={logo.src} alt="whirl(ing)!" width="100" height="100" />
+		<span>
+			heya, i'm
+			<span class="name">Whirling</span>!
+		</span>
+	</intro>
+</div>
+
+
+<style>
+	#container {
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	intro {
+		font-size: 1.5rem;
+		font-weight: 500;
+		display: flex;
+		align-items: center;
+	}
+
+	.name {
+		color: var(--color-primary-bright);
+	}
+</style>
