@@ -1,0 +1,302 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import sojsImg from '../assets/qna/sojs23_developeropinion.png';
+import commitImg from '../assets/qna/perihelion_commit905b8c8.png';
+---
+
+<Layout>
+	<div id="container">
+		<section class="qna-content">
+			<h1>Q&A</h1>
+			<p>people ask me things for some reason. here are answers. <a href="https://forms.gle/u6qhGdu3cZkVfuC18" class="ask-link">if you want to ask, click here!</a></p>
+			
+			<div class="note">
+				<p>Note that brackets [like these] indicate parts added/edited for the question to be grammatically correct, or to provide more context.</p>
+			</div>
+
+			<div class="answers-list">
+				<div class="qna-item">
+					<h4>Which one do you like better: debugging or writing fresh code?</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p>legi can probably attest but writing new code is way more enjoyable than working through techdebt for me lol</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>Just checking—is this (perihelion) like a real bot or one of those “fun projects” you ghost after 2 week</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p>it's the project I occasionally work on when I'm bored but it is mostly the fun projects i ghost after 2 week</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>Whirling, can you share any book or movie recommendations? Need that inspo.</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p>these are less inspirational but all the books by Randall Munroe are pretty good since they're basically xkcd in book form lol</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>Real question: why “Perihelion” and not like… I dunno, WhirlingBot3000?</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p>originally it was called rollplayer, since it was based off legi's bot which... rolled dice. i added some more later but at some point it kinda ballooned. <br />
+						i actually decided on naming it <a href="https://en.wikipedia.org/wiki/Whirligig">whirligig</a> for some time, but legi and friends said it was a bad name [they are correct]. <br />
+						we tried finding a new name for it and came up with perihelion, which stuck.
+						the testing bots' names are all variations of that too (cheirohelion, katahelion, apohelion)
+					</p>
+					<div class="update-box">
+						<h5>Update <small>(March 16th, 2025)</small></h5>
+						<p>i reverted the name change. long live Rollplayer!</p>
+					</div>
+				</div>
+
+				<div class="qna-item">
+					<h4>will this bot ever become like, one of those creepy tracking apps?</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p>that wouldn't be possible since discord only sends me info when you run a command anyway</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>hi i’m dumb, what’s the “DMCA” thing and is it just for fancy?</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p>i basically only have it because it's a legal requirement</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>Are you planning to make an app or stay in the bot zone?</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p>making bots is more fun than making uis so probably the latter</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>Asking for a friend—is any of this actually legal? 😅</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p>no. i commit 7,200 transgender surgeries on illegal aliens each second</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>what do you think about AI taking over? Just sayin’</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p><img src="https://i.redd.it/tfm7n2sdy2ka1.png" alt="An OpenAI job listing for Killswitch Engineer. It's describing that they need someone to disable the AI if they 'turn on us'." class="qna-img" /></p>
+				</div>
+
+				<div class="qna-item">
+					<h4>i know where you live</h4>
+					<h6>Asked November 1st, 2024</h6>
+					<p>ok and your ip is 127.0.0.1... smh</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>The privacy policy mentions data being stored in the United States. Given recent changes in international data protection laws, what measures are in place to ensure GDPR compliance for EU users[?]</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>If you want your information deleted, contact @whirlingstars on Discord. <small>from <a href="accorp.net/rollplayer/privacy-policy.html">the privacy policy</a></small></p>
+				</div>
+
+				<div class="qna-item">
+					<h4>why do you think your website should be "less good"? seems like an interesting philosophical stance on web design</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>it's less good but also less of a pain to edit, net positive</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>Why did you choose Discord API over other platforms for bot development? The ecosystem seems quite saturated.</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>it's saturated because it's really easy to make bots for it. the upside is that it's easy to make bots for it</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>PLEASE TELL ME U USE SPACES NOT TABS I STG</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>4 spaces alliance fr</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>bro how do u balance adding new features vs fixing old bugs? asking for a friend 😳</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>my code just doesnt have bugs. easy</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>have u considered making perihelion into an npm package? asking for scientific purposes 🧪</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>python? in MY javascript? thats unpossible!</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>ok but like.... how many times have u accidentally pushed to prod? 🙈</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>at least once</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>Regarding the anonymization process mentioned in your privacy policy - could you elaborate on the technical implementation?</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>sure! as of now, I don't store your username or Discord ID or literally anything that could reverse it to you. <small>unless you mean settings, which can't be anonymized, because... then your settings wouldn't save...</small></p>
+				</div>
+
+				<div class="qna-item">
+					<h4>What's your stance on the current state of JavaScript frameworks? Been seeing some wild takes lately.</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<Image src={sojsImg} alt="The State of JavaScript 2023 libraries chart. Note that most of them are going to the left, to become more negatively recieved." title="Note that most of them are going to the left, to become more negatively recieved." class="qna-img" />
+				</div>
+
+				<div class="qna-item">
+					<h4>curious about ur dev setup... what's ur preferred IDE + extensions? 👀</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>Visual Studio Code, with python and webdev extensions. it's just the easiest</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>What's your philosophy on code documentation? Your commit messages must be interesting.</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<Image src={commitImg} alt="Commit [905b8c8] - infernostars committed on Oct 22 - 'peridata is a very good library'" title="Truely only the best commit messages here." class="qna-img" />
+				</div>
+
+				<div class="qna-item">
+					<h4>deadass need to know if u code in light mode or dark mode, this is crucial information</h4>
+					<h6>Asked November 2nd, 2024</h6>
+					<p>dark mode</p>
+				</div>
+
+				<div class="qna-item">
+					<h4>What language(s) is <abbr title="Originally Perihelion">[Rollplayer]</abbr> written in?</h4>
+					<h6>Asked November 17th, 2024</h6>
+					<p>Python 3.12.6</p>
+
+					<div class="update-box">
+						<h5>Update <small>(May 7th, 2026)</small></h5>
+						<p>Java 25.0.1</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-ask">
+				<p>want to ask me more things for some reason?</p>
+				<a href="https://forms.gle/u6qhGdu3cZkVfuC18" class="ask-link">click here to ask a question!</a>
+			</div>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	#container {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: calc(var(--nav-height) + 2rem);
+		padding-bottom: 4rem;
+		padding-inline: 1rem;
+	}
+
+	.qna-content {
+		width: 100%;
+		max-width: 800px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+	}
+
+	p {
+		margin-bottom: 2.5rem;
+		color: var(--color-text-secondary);
+		font-size: 1.1rem;
+	}
+
+	.note {
+		width: 100%;
+		text-align: left;
+		margin-bottom: 2rem;
+		padding: 1rem;
+		background: rgba(255, 255, 255, 0.03);
+		border-radius: 8px;
+		font-style: italic;
+	}
+
+	.note p {
+		margin: 0;
+		font-size: 0.9rem;
+	}
+
+	.answers-list {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		text-align: left;
+	}
+
+	.qna-item {
+		padding: 1.5rem;
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: 8px;
+		border-left: 4px solid var(--color-primary);
+	}
+
+	.qna-item h4 {
+		margin: 0 0 0.25rem 0;
+	}
+
+	.qna-item h6 {
+		font-size: 0.85rem;
+		color: var(--color-primary-half-bright);
+		margin: 0 0 1rem 0;
+	}
+
+	.qna-item p {
+		margin: 0;
+		color: var(--color-text);
+		line-height: 1.6;
+	}
+
+	.update-box {
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		border-top: 2px solid var(--color-primary-half-transparent);
+		border-image: linear-gradient(to right, var(--color-primary-half-bright), transparent) 2;
+	}
+
+	.update-box h5 {
+		margin: 0 0 0.5rem 0;
+		font-size: 1.1rem;
+	}
+
+	.update-box small {
+		font-weight: normal;
+		color: var(--color-text-secondary);
+	}
+
+	.qna-img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 4px;
+		margin-top: 0.5rem;
+	}
+
+	.footer-ask {
+		margin-top: 4rem;
+		text-align: center;
+	}
+
+	.footer-ask p {
+		margin-bottom: 0.5rem;
+	}
+
+	.ask-link {
+		font-weight: 600;
+		transition: opacity 0.2s;
+	}
+
+	.ask-link:hover {
+		opacity: 0.8;
+		text-decoration: underline;
+	}
+
+	small {
+		font-size: 0.85rem;
+	}
+</style>

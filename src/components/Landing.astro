@@ -1,24 +1,60 @@
 ---
 import logo from "../assets/icon.png"
+import ColoredLinkButton from "./ColoredLinkButton.astro";
+import { Image } from "astro:assets"
 ---
 
 <div id="container">
 	<intro>
-		<img src={logo.src} alt="whirl(ing)!" width="100" height="100" />
-		<span>
-			heya, i'm
-			<span class="name">Whirling</span>!
-		</span>
+		<Image src={logo} alt="oh hey, that's me" width="100" height="100" loading="eager"/>
+		<div class="text-content">
+			<span>
+				heya, i'm
+				<span class="name">Whirling</span>!
+			</span>
+			<span class="subtitle">i make things, probably</span>
+		</div>
 	</intro>
+	<hr class="px600" />
+	<div class="flex-column">
+		<span>if you just want to see my projects:</span>
+		<ColoredLinkButton color="#d3792a" href="https://heredita.net" brightOverride={false}>Heredita! <small>a multi-user map roleplay tool/editor</small></ColoredLinkButton>
+		<a href="https://whirl.accorp.net/HTML5b"><button>tas5b! <small>by coppersalts, hosted here</small></button></a>
+	</div>
+	<hr class="px600" />
+	<div class="flex-column">
+		<span>or, check out my friend's websites:</span>
+		<ColoredLinkButton color="#00bb00" href="https://legitsi.neocities.org">legitsi! <small>inspired this website</small></ColoredLinkButton>
+		<ColoredLinkButton color="#34db79" href="https://digital.accorp.net">digi! <small>i moved his website over and he still wont update it</small></ColoredLinkButton>
+	</div>
 </div>
 
 
 <style>
+	small {
+		font-size: 0.85rem;
+		font-style: italic;
+	}
+
 	#container {
-		height: 100vh;
+		height: 100%;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.flex-column {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.flex-row {
+		display: flex;
+		gap: 1rem;
+		flex-direction: row;
 	}
 
 	intro {
@@ -26,9 +62,23 @@ import logo from "../assets/icon.png"
 		font-weight: 500;
 		display: flex;
 		align-items: center;
+		gap: 0.5rem;
 	}
 
 	.name {
 		color: var(--color-primary-bright);
+		font-weight: 600;
+	}
+
+	.text-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.subtitle {
+		font-size: 1.25rem;
+		font-weight: 400;
+		color: var(--color-text-secondary);
 	}
 </style>

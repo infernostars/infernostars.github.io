@@ -1,0 +1,80 @@
+---
+
+interface Props {
+    color: string;
+    href?: string;
+    brightOverride?: boolean;
+}
+
+const { color, href= null, brightOverride= null } = Astro.props;
+
+// Determine if the color is "too bright" using OKLAB lightness
+let isBright = brightOverride;
+try {
+    if (color.startsWith('#') && (brightOverride == null)) {
+        const hex = color.replace('#', '');
+        const r_ = parseInt(hex.length === 3 ? hex[0] + hex[0] : hex.substring(0, 2), 16) / 255;
+        const g_ = parseInt(hex.length === 3 ? hex[1] + hex[1] : hex.substring(2, 4), 16) / 255;
+        const b_ = parseInt(hex.length === 3 ? hex[2] + hex[2] : hex.substring(4, 6), 16) / 255;
+
+        // sRGB to Linear RGB
+        const s2l = (c: number) => c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        const r = s2l(r_);
+        const g = s2l(g_);
+        const b = s2l(b_);
+
+        // Linear RGB to LMS
+        const l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
+        const m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
+        const s = 0.0883024619 * r + 0.2817188501 * g + 0.6299787032 * b;
+
+        // LMS to OKLAB L
+        const l_ = Math.cbrt(l);
+        const m_ = Math.cbrt(m);
+        const s_ = Math.cbrt(s);
+
+        const L = 0.2104542553 * l_ + 0.793617785 * m_ - 0.0040720468 * s_;
+
+        isBright = L > 0.65;
+    }
+} catch (e) {
+    // Fallback
+}
+---
+
+{
+    (href) ? (
+        <a href={href}>
+            <button class="coloredlinkbutton">
+                <slot/>
+            </button>
+        </a>
+    ) : (
+        <button class="coloredlinkbutton">
+            <slot/>
+        </button>
+    )
+    }
+
+<style define:vars={{
+    primaryButtonColor: color,
+    activeTextColor: isBright ? 'var(--color-primary-background)' : 'var(--color-text)',
+    secondaryColor: isBright ? 'oklch(from var(--primaryButtonColor) calc(l + 0.25) calc(c + 0.04) h)' : 'oklch(from var(--primaryButtonColor) min(calc(l / 2), 0.3) min(c, 0.1) calc(h + 5));'
+}}>
+    button.coloredlinkbutton {
+        background-color: transparent;
+        color: oklch(from var(--primaryButtonColor) calc(l + 0.25) calc(c + 0.04) h);
+        border: 2px solid var(--primaryButtonColor);
+    }
+
+    button.coloredlinkbutton:hover {
+        background-color: oklch(from var(--primaryButtonColor) min(calc(l / 2), 0.3) min(c, 0.1) calc(h + 5));
+    }
+
+    button.coloredlinkbutton:active {
+        color: var(--activeTextColor);
+        text-shadow: 0 0 2px var(--secondaryColor), 0 0 4px var(--secondaryColor);
+        background-color: oklch(from var(--primaryButtonColor) min(l, 0.7) min(c, 0.2) h);
+        border-color: oklch(from var(--primaryButtonColor) min(calc(l / 2), 0.3) min(c, 0.2) calc(h + 5));
+    }
+</style>
