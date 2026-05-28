@@ -2,9 +2,54 @@
 import logo from "../assets/icon.png"
 import ColoredLinkButton from "./ColoredLinkButton.astro";
 import { Image } from "astro:assets"
+
+const starLayerData = [
+	{ className: "star-layer-1", count: 64, spin: "105s", twinkle: 1.8, size: 7 },
+	{ className: "star-layer-2", count: 48, spin: "135s", twinkle: 2.4, size: 9 },
+	{ className: "star-layer-3", count: 32, spin: "170s", twinkle: 3.1, size: 11 },
+].map((layer, layerIndex) => ({
+	...layer,
+	stars: Array.from({ length: layer.count }, (_, starIndex) => {
+		const seed = layerIndex * 100 + starIndex + 1;
+		const random = (offset: number) => {
+			const value = Math.sin((seed + offset) * 12.9898) * 43758.5453;
+			return value - Math.floor(value);
+		};
+
+		return {
+			x: 6 + random(1) * 88,
+			y: 6 + random(2) * 88,
+			size: layer.size + random(3) * 5,
+			delay: random(4) * -layer.twinkle,
+			duration: layer.twinkle + random(5) * 2.2,
+			opacity: 0.52 + random(6) * 0.34,
+			rotation: random(7) * 90,
+		};
+	}),
+}));
 ---
 
 <div id="container">
+	<div class="star-field" aria-hidden="true">
+		{starLayerData.map((layer) => (
+			<div
+				class={`star-layer ${layer.className}`}
+				style={`--spin-speed: ${layer.spin};`}
+			>
+				{layer.stars.map((star) => (
+					<svg
+						class="star"
+						viewBox="-12 -12 24 24"
+						width={star.size.toFixed(2)}
+						height={star.size.toFixed(2)}
+						style={`--x: ${star.x.toFixed(2)}%; --y: ${star.y.toFixed(2)}%; --twinkle-speed: ${star.duration.toFixed(2)}s; --twinkle-delay: ${star.delay.toFixed(2)}s; --star-opacity: ${star.opacity.toFixed(2)}; --star-rotation: ${star.rotation.toFixed(2)}deg;`}
+					>
+						<path d="M 0 -11 C 0.8 -5 5 -0.8 11 0 C 5 0.8 0.8 5 0 11 C -0.8 5 -5 0.8 -11 0 C -5 -0.8 -0.8 -5 0 -11 Z" />
+					</svg>
+				))}
+			</div>
+		))}
+	</div>
 	<intro>
 		<Image src={logo} alt="oh hey, that's me" width="100" height="100" loading="eager"/>
 		<div class="text-content">
@@ -42,6 +87,101 @@ import { Image } from "astro:assets"
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		isolation: isolate;
+		overflow: hidden;
+		position: relative;
+		z-index: 0;
+		background-color: var(--color-primary-background-dark);
+	}
+
+	#container > :not(.star-field) {
+		position: relative;
+		z-index: 2;
+	}
+
+	.star-field {
+		position: fixed;
+		inset: var(--nav-height) 0 0;
+		z-index: 1;
+		overflow: hidden;
+		pointer-events: none;
+	}
+
+	.star-layer {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 170vmax;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		transform: translate(-50%, -50%);
+		transform-origin: center;
+		animation: star-spin var(--spin-speed) linear infinite;
+		will-change: transform;
+	}
+
+	.star {
+		position: absolute;
+		left: var(--x);
+		top: var(--y);
+		fill: #f6fffd;
+		filter: drop-shadow(0 0 5px oklch(from var(--color-primary-bright) l c h / 0.45));
+		opacity: var(--star-opacity);
+		transform: translate(-50%, -50%) rotate(var(--star-rotation));
+		transform-origin: center;
+		animation: twinkle var(--twinkle-speed) ease-in-out var(--twinkle-delay) infinite alternate;
+		will-change: opacity, transform;
+	}
+
+	.star-layer-1 {
+		opacity: 0.7;
+	}
+
+	.star-layer-2 {
+		animation-direction: reverse;
+		opacity: 0.85;
+	}
+
+	.star-layer-3 {
+		opacity: 0.9;
+	}
+
+	@keyframes star-spin {
+		from {
+			transform: translate(-50%, -50%) rotate(0turn);
+		}
+
+		to {
+			transform: translate(-50%, -50%) rotate(1turn);
+		}
+	}
+
+	@keyframes twinkle {
+		from {
+			opacity: 0;
+			transform: translate(-50%, -50%) rotate(var(--star-rotation)) scale(0.82);
+		}
+		15% {
+			opacity: 0;
+			transform: translate(-50%, -50%) rotate(var(--star-rotation)) scale(0.82);
+		}
+
+		to {
+			opacity: var(--star-opacity);
+			transform: translate(-50%, -50%) rotate(var(--star-rotation)) scale(1.12);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.star-layer,
+		.star {
+			animation: none;
+		}
+
+		.star {
+			opacity: var(--star-opacity);
+			transform: translate(-50%, -50%) rotate(var(--star-rotation));
+		}
 	}
 
 	.flex-column {
