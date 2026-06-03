@@ -1,0 +1,338 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { docs as generatedDocs } from '../generated/bppDocsData.js';
+
+type DocParameter = {
+	name: string;
+	description: string;
+	optional: boolean;
+};
+
+type DocItem = {
+	name: string;
+	primaryName: string;
+	aliases: string[];
+	signature: string;
+	category: string;
+	isAlias: boolean;
+	aliasOf: string | null;
+	summary: string[];
+	parameters: DocParameter[];
+	returns: string[];
+	raises: string[];
+	examples: string[];
+	notes: string[];
+};
+
+const docs = generatedDocs as DocItem[];
+const categories = [...new Set(docs.map((doc) => doc.category))];
+const docsByCategory = categories.map((category) => ({
+	category,
+	items: docs.filter((doc) => doc.category === category),
+}));
+
+const slug = (value: string) => value.toLowerCase().replaceAll(' ', '-').replaceAll('#', 'hash').replaceAll('/', 'slash');
+const inlineParts = (value: string) => value.trim().split(/(`[^`]+`|\*\*[^*]+\*\*)/g).filter(Boolean).map((part) => {
+	if (part.startsWith('`') && part.endsWith('`')) {
+		return { kind: 'code', text: part.slice(1, -1) };
+	}
+	if (part.startsWith('**') && part.endsWith('**')) {
+		return { kind: 'bold', text: part.slice(2, -2) };
+	}
+	return { kind: 'text', text: part };
+});
+const cleanNote = (value: string) => value.replace(/^@note\s+/, '');
+---
+
+<Layout>
+	<div id="container">
+		<section class="docs-header">
+			<h1>B++ Function Docs</h1>
+			<nav class="category-nav" aria-label="B++ function categories">
+				{docsByCategory.map((group) => (
+					<a href={`#${slug(group.category)}`}>{group.category} <span>{group.items.length}</span></a>
+				))}
+			</nav>
+		</section>
+
+		{docsByCategory.map((group) => (
+			<section class="category-section" id={slug(group.category)}>
+				<header class="category-heading">
+					<h2>{group.category}</h2>
+				</header>
+
+				<div class="function-list">
+					{group.items.map((doc) => (
+						<article class="function-entry" id={`fn-${slug(doc.name)}`}>
+							<header class="function-title">
+								<div>
+									<h3>{doc.name}</h3>
+									{doc.aliases.length > 0 && (
+										<p class="aliases">Aliases: {doc.aliases.map((alias) => <code>{alias}</code>)}</p>
+									)}
+								</div>
+								<code class="signature">{doc.signature}</code>
+							</header>
+
+							{doc.summary.length > 0 && (
+								<p class="function-summary">{inlineParts(doc.summary.join("\n")).map((part) => part.kind === 'code' ? <code>{part.text}</code> : part.kind === 'bold' ? <strong>{part.text}</strong> : part.text)}</p>
+							)}
+
+							{doc.parameters.length > 0 && (
+								<div class="doc-block">
+									<h4>Parameters</h4>
+									<dl class="param-list">
+										{doc.parameters.map((param) => (
+											<div>
+												<dt><code>{param.name}{param.optional && '?'}</code></dt>
+												<dd>
+													{param.description
+														? inlineParts(param.description).map((part) => part.kind === 'code' ? <code>{part.text}</code> : part.kind === 'bold' ? <strong>{part.text}</strong> : part.text)
+														: 'No description provided.'}
+												</dd>
+											</div>
+										))}
+									</dl>
+								</div>
+							)}
+
+							{doc.returns.length > 0 && (
+								<div class="doc-block compact">
+									<h4>Returns</h4>
+									<ul>
+										{doc.returns.map((item) => (
+											<li>{inlineParts(item).map((part) => part.kind === 'code' ? <code>{part.text}</code> : part.kind === 'bold' ? <strong>{part.text}</strong> : part.text)}</li>
+										))}
+									</ul>
+								</div>
+							)}
+
+							{doc.raises.length > 0 && (
+								<div class="doc-block compact">
+									<h4>Raises</h4>
+									<ul>
+										{doc.raises.map((item) => (
+											<li>{inlineParts(item).map((part) => part.kind === 'code' ? <code>{part.text}</code> : part.kind === 'bold' ? <strong>{part.text}</strong> : part.text)}</li>
+										))}
+									</ul>
+								</div>
+							)}
+
+							{doc.examples.length > 0 && (
+								<div class="doc-block compact">
+									<h4>Examples</h4>
+									<ul>{doc.examples.map((item) => <li><code>{item}</code></li>)}</ul>
+								</div>
+							)}
+
+							{doc.notes.length > 0 && (
+								<div class="doc-block compact">
+									<h4>Notes</h4>
+									<ul>
+										{doc.notes.map((item) => (
+											<li>{inlineParts(cleanNote(item)).map((part) => part.kind === 'code' ? <code>{part.text}</code> : part.kind === 'bold' ? <strong>{part.text}</strong> : part.text)}</li>
+										))}
+									</ul>
+								</div>
+							)}
+						</article>
+					))}
+				</div>
+			</section>
+		))}
+	</div>
+</Layout>
+
+<style>
+	#container {
+		width: min(960px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding-top: calc(var(--nav-height) + 2.5rem);
+		padding-bottom: 5rem;
+	}
+
+	.docs-header {
+		margin-bottom: 2rem;
+	}
+
+	h1 {
+		margin: 0;
+	}
+
+	.summary {
+		margin: 0.5rem 0 1.25rem;
+		color: var(--color-text-secondary);
+		line-height: 1.6;
+	}
+
+	.category-nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem 0.5rem
+	}
+
+	.category-nav a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		color: var(--color-primary-bright);;
+		background-color: var(--color-primary-background-dark);
+		padding: 0.125rem 0.25rem;
+		border-radius: 0.25rem;
+		border: 1px solid var(--color-primary);
+		text-decoration: none;
+	}
+
+	.category-nav a:hover {
+		color: var(--color-text);
+		border: 1px solid var(--color-text-secondary);
+		background-color: var(--color-primary-dark);
+	}
+
+	.category-nav span {
+		font-family: "Atkinson Hyperlegible Mono", monospace;
+		font-size: 0.85rem;
+		color: var(--color-primary-half-bright);
+		text-decoration: none;
+	}
+
+	.category-nav a:hover span {
+		color: var(--color-text-secondary);
+	}
+
+	.category-section {
+		scroll-margin-top: calc(var(--nav-height) + 1rem);
+		margin-top: 1.5rem;
+	}
+
+	.category-heading {
+		border-bottom: 1px solid var(--color-primary-half-transparent);
+		margin-bottom: 0.25rem;
+	}
+
+	.category-heading h2 {
+		margin: 0 0 0.25rem;
+	}
+
+	.function-list {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.function-entry {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 1.1rem 0;
+		scroll-margin-top: calc(var(--nav-height) + 1rem);
+	}
+
+	.function-title {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(180px, max-content);
+		gap: 0.75rem;
+		align-items: start;
+	}
+
+	h3 {
+		margin: 0;
+		font-family: "Atkinson Hyperlegible Mono", monospace;
+	}
+
+	.aliases {
+		margin: 0.25rem 0 0;
+		color: var(--color-text-secondary);
+		font-size: 0.9rem;
+	}
+
+	.aliases code + code::before {
+		content: ", ";
+		color: var(--color-text-secondary);
+	}
+
+	.signature {
+		max-width: 100%;
+		color: var(--color-primary-bright);
+		overflow-x: auto;
+		white-space: nowrap;
+		text-align: right;
+	}
+
+	.function-summary {
+		margin: 0.65rem 0 0;
+		color: var(--color-text);
+		white-space: pre-wrap;
+		line-height: 1.55;
+	}
+
+	.doc-block {
+		margin-top: 0.85rem;
+	}
+
+	.doc-block h4 {
+		margin: 0 0 0.35rem;
+		font-size: 0.95rem;
+		color: var(--color-primary-half-bright);
+	}
+
+	.param-list {
+		display: grid;
+		gap: 0.45rem;
+		margin: 0;
+	}
+
+	.param-list div {
+		display: grid;
+		grid-template-columns: minmax(90px, 150px) minmax(0, 1fr);
+		gap: 0.75rem;
+		align-items: baseline;
+	}
+
+	dt, dd {
+		margin: 0;
+	}
+
+	dd {
+		color: var(--color-text-secondary);
+		line-height: 1.45;
+	}
+
+	.compact ul {
+		margin: 0;
+		padding-left: 1.25rem;
+		color: var(--color-text-secondary);
+		line-height: 1.5;
+	}
+
+	code {
+		font-family: "Atkinson Hyperlegible Mono", monospace;
+		font-size: 0.95em;
+		color: var(--color-primary-bright);
+	}
+
+	dd code,
+	li code,
+	.function-summary code {
+		padding: 0 0.2rem;
+		border-radius: 4px;
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	@media (max-width: 760px) {
+		#container {
+			width: min(100% - 1rem, 960px);
+			padding-top: calc(var(--nav-height) + 1.5rem);
+		}
+
+		.function-title {
+			grid-template-columns: 1fr;
+		}
+
+		.signature {
+			text-align: left;
+		}
+
+		.param-list div {
+			grid-template-columns: 1fr;
+			gap: 0.15rem;
+		}
+	}
+</style>
