@@ -107,13 +107,15 @@ import Navbar from '../components/Navbar.astro';
 
 	hr.px600 {
 		width: 600px;
-		@media (max-width: 600px) {
+		@media (max-width: 650px) {
 			width: 100%;
-			background-image: linear-gradient(to right, var(--color-primary));
+			height: 1px;
+			background-image: linear-gradient(to right, var(--color-primary-bright));
 		}
 	}
 
 	button {
+		font-family: "Atkinson Hyperlegible Next", sans-serif;
 		background-color: transparent;
 		color: var(--color-primary-bright);
 		border: 2px solid var(--color-primary);
